@@ -1,7 +1,11 @@
 console.log("Javascript is connected")
 
-let scoreP1 = document.querySelector("#score_p1")
-let scoreP2 = document.querySelector("#score_p2")
+const scoreP1 = document.querySelector("#score_p1")
+const scoreP2 = document.querySelector("#score_p2")
+const colors = ["black", "white"]
+let score = [0, 0]
+let activePlayer = 1
+
 
 // Initializes empty board and stone arrays
 let board = [];
@@ -35,3 +39,26 @@ function createBoard() {
 
 createBoard();
 console.log(board)
+
+function changeActivePlayer() {
+    if (activePlayer == 1) {
+        activePlayer = 2;
+    }
+    else {
+        activePlayer = 1
+    }
+}
+
+function updateScore() {
+    score[activePlayer - 1]++
+    scoreP1.innerText = score[0]
+    scoreP2.innerText = score[1]
+    changeActivePlayer()
+}
+
+function placeStone(location) {
+    console.log(location.id)
+    location.innerText = "●";
+    location.style.color = colors[activePlayer - 1];
+    updateScore()
+}
