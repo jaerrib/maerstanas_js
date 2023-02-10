@@ -41,10 +41,12 @@ a:visited {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* border: 1px solid chartreuse; */
 }
 
-.dark_square, .light_square {
+.dark_square,
+.light_square {
+    border: 0;
+    font-size: 48px;
     height: 70px;
     width: 70px;
 }
