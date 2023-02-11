@@ -5,15 +5,14 @@ const scoreP2 = document.querySelector("#score_p2")
 const colors = ["black", "white"]
 let score = [0, 0]
 let activePlayer = 1
-
+board = createBoard()
 
 // Initializes empty board and stone arrays
-let board = [];
-
 function createBoard() {
-    var size = 9;
-    var empty = 0;
-    var edge = 3;
+    let board = []
+    const size = 9;
+    const empty = 0;
+    const edge = 3;
 
     // Creates a 9x9 grid for the board
     for (var rowNum = 0; rowNum < size; rowNum++) {
@@ -35,10 +34,9 @@ function createBoard() {
         board[rowNum][0] = edge;
         board[rowNum][8] = edge;
     }
-}
 
-createBoard();
-console.log(board)
+    return board
+}
 
 function changeActivePlayer() {
     if (activePlayer == 1) {
@@ -50,28 +48,44 @@ function changeActivePlayer() {
 }
 
 function updateScore() {
-    score[activePlayer - 1]++
     scoreP1.innerText = score[0]
     scoreP2.innerText = score[1]
-    changeActivePlayer()
 }
 
-function convertToRowNum(str) {
-    var arr = Array.from(str);
-    var letter = arr[0];
+function convertToRowNum(letter) {
     // Converts player's letter input to a number usable by various functions.
     possibleRows = ["A", "B", "C", "D", "E", "F", "G"];
-    for(var i = 0; i < possibleRows.length; i++) {
-        if(letter == possibleRows[i]) {
+    for (var i = 0; i < possibleRows.length; i++) {
+        if (letter == possibleRows[i]) {
             return i + 1
         }
     }
 }
 
+function assignBoardPos(row, col) {
+    board[row][col] = activePlayer;
+    console.log(activePlayer)
+    score[activePlayer - 1]++
+}
+
+function isValidMove(row, col) {
+    console.log(board[row][col])
+    if (board[row][col] == 0) {
+        return true;
+    }
+    return false
+}
+
 function placeStone(location) {
-    rowNum = convertToRowNum(location.id);
-    console.log(rowNum);
-    location.innerText = "●";
-    location.style.color = colors[activePlayer - 1];
-    updateScore()
+    var locArr = Array.from(location.id);
+    var rowNum = convertToRowNum(locArr[0]);
+    var colNum = locArr[1];
+    if (isValidMove(rowNum, colNum)) {
+        assignBoardPos(rowNum, colNum)
+        location.innerText = "●";
+        location.style.color = colors[activePlayer - 1];
+        // calculateScore()
+        updateScore()
+        changeActivePlayer()
+    }
 }
