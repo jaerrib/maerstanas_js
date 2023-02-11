@@ -56,8 +56,21 @@ function updateScore() {
     changeActivePlayer()
 }
 
+function convertToRowNum(str) {
+    var arr = Array.from(str);
+    var letter = arr[0];
+    // Converts player's letter input to a number usable by various functions.
+    possibleRows = ["A", "B", "C", "D", "E", "F", "G"];
+    for(var i = 0; i < possibleRows.length; i++) {
+        if(letter == possibleRows[i]) {
+            return i + 1
+        }
+    }
+}
+
 function placeStone(location) {
-    console.log(location.id)
+    rowNum = convertToRowNum(location.id);
+    console.log(rowNum);
     location.innerText = "●";
     location.style.color = colors[activePlayer - 1];
     updateScore()
