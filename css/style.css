@@ -38,9 +38,13 @@ a:visited {
 /* End Navigation */
 
 .board {
+    outline: 1px solid black;
+    box-shadow: 0 0 10px black;
+    margin-top: 5px;
+}
+
+.row {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
 button:hover {
