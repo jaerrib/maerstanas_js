@@ -35,7 +35,7 @@ const scoreP2 = document.querySelector("#score_p2")
 const colors = ["black", "white"]
 let score = [0, 0]
 let activePlayer = 1
-board = createBoard()
+let board = createBoard()
 
 // Initializes empty board and stone arrays
 function createBoard() {
@@ -94,49 +94,70 @@ function convertToRowNum(letter) {
 
 function findAdjacent(row, col) {
     // Returns assigned value for positions adjacent to a given board position
-    let adjacentPositions = [
-        [row - 1, col],
-        [row, col - 1],
-        [row, col + 1],
-        [row + 1, col]
-    ];
-    console.log(adjacentPositions)
-    return adjacentPositions
+    return [
+    [row - 1, col],
+    [row, col - 1],
+    [row, col - 1 + 2], // 'col + 1' adds 11 instead of 1 - fix in the future
+    [row + 1, col]
+    ]
 }
 
+function checkAdjStones(row, col) {
+    let adjacentPositions = findAdjacent(row, col);
+    for (let pos = 0; pos < adjacentPositions.length; pos++) {
+        let rowToCheck = adjacentPositions[pos][0]
+        let colToCheck = adjacentPositions[pos][1]
+        let board_value = board[rowToCheck][colToCheck]
+        if (board_value === 1 || board_value === 2) {
+            if (countHinges(rowToCheck, colToCheck) >= 3) {
+                return true
+            }
+        }
+    }
+    return false
+}
 
-function hasFourHinges(row, col) {
-
-    // Evaluates the number of hinges a player move would have
+function countHinges(row, col) {
+    // Evaluates the number of hinges a stone would have
     // if played at a given board position
     let adjacentPositions = findAdjacent(row, col)
-    // Counts the number of hinges a potential position would have
     let hinges = 0;
     for (let pos = 0; pos < adjacentPositions.length; pos++) {
         let rowToCheck = adjacentPositions[pos][0]
         let colToCheck = adjacentPositions[pos][1]
         let positionCheck = board[rowToCheck][colToCheck]
-        if (positionCheck !== 0) {
+        if (positionCheck === 3) {
+            hinges += 1;
+        }
+        else if (positionCheck === 1 || positionCheck === 2){
             hinges += 1;
         }
     }
-    return hinges > 3;
+    return hinges
+}
+
+function hasFourHinges(row, col) {
+    return countHinges(row, col) > 3
 }
 
 function assignBoardPos(row, col) {
     board[row][col] = activePlayer;
-    // console.log(activePlayer)
     score[activePlayer - 1]++
 }
 
 function isValidMove(row, col) {
-    // console.log(board[row][col])
-    if (board[row][col] === 0) {
-        if (!hasFourHinges(row, col)){
-            return true;
-        }
+    if (board[row][col] !== 0) {
+        // Invalid move - space occupied
+        console.log("occupied")
+        return false
     }
-    return false
+    if (hasFourHinges(row, col)){
+        // Invalid move - move would have 4 immediate hinges
+        console.log("would have 4 hinges")
+        return false;
+    }
+    // Valid move if none of the adjacent stones would have 4 hinges
+    return !checkAdjStones(row, col)
 }
 
 function placeStone(location) {
