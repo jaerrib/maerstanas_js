@@ -113,8 +113,9 @@ function hasFourHinges(row, col) {
     // Counts the number of hinges a potential position would have
     let hinges = 0;
     for (let pos = 0; pos < adjacentPositions.length; pos++) {
-        let rowToCheck = adjacentPositions[pos][1]
-        let positionCheck = board[row][col]
+        let rowToCheck = adjacentPositions[pos][0]
+        let colToCheck = adjacentPositions[pos][1]
+        let positionCheck = board[rowToCheck][colToCheck]
         if (positionCheck !== 0) {
             hinges += 1;
         }
