@@ -168,6 +168,9 @@ function placeStone(location) {
         updateScore()
         changeActivePlayer()
     }
+    if (gameOver()) {
+        displayResult()
+    }
 }
 
 function calculateScore() {
@@ -212,4 +215,36 @@ function checkScore(player) {
             }
         }
     return calcScore
+}
+
+function gameOver() {
+    // Cycles through board positions starting at A1 (1,1). If a position is
+    // valid, viable_moves is True and play is allowed to continue. If a
+    // position is not valid, the next position is assessed until the entire
+    // board has been checked.
+    let movesLeft = 0
+    for (let rowIndex = 1; rowIndex < board.length; rowIndex++) {
+        for (let colIndex = 1; colIndex < board.length; colIndex++) {
+            if(board[rowIndex][colIndex] === 0) {
+                if (!hasFourHinges(rowIndex, colIndex)) {
+                    if (!checkAdjStones(rowIndex, colIndex)) {
+                        movesLeft++
+                    }
+                }
+            }
+        }
+    }
+    return movesLeft == 0
+}
+
+function displayResult() {
+    let result = ""
+    if (score[0] === score[1]) {
+        result = "It's a tie"
+    }
+    else if (score[0] > score[1]) {
+        result = "Player 1 wins"
+    }
+    else result = "Player 2 wins"
+    console.log(result)
 }
