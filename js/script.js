@@ -32,6 +32,7 @@ console.log("Javascript is connected")
 
 const scoreP1 = document.querySelector("#score_p1")
 const scoreP2 = document.querySelector("#score_p2")
+const gameResult = document.querySelector("#results")
 const colors = ["black", "white"]
 let score = [0, 0]
 let activePlayer = 1
@@ -234,17 +235,19 @@ function gameOver() {
             }
         }
     }
-    return movesLeft == 0
+    return movesLeft === 0
 }
 
 function displayResult() {
     let result = ""
     if (score[0] === score[1]) {
-        result = "It's a tie"
+        result = "It's a tie!"
     }
     else if (score[0] > score[1]) {
-        result = "Player 1 wins"
+        result = "Player 1 wins!"
     }
-    else result = "Player 2 wins"
-    console.log(result)
+    else result = "Player 2 wins!"
+    let displayText = result + " Refresh the page (F5) to play again."
+    gameResult.innerText = (displayText)
+    gameResult.style.padding = "5px"
 }
