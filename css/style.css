@@ -32,7 +32,7 @@ a,
 a:active,
 a:hover,
 a:visited {
-    color: chartreuse;
+    color: #cdab8f;
 }
 
 /* End Navigation */
@@ -75,3 +75,5 @@ button:hover {
     margin-top: 5px;
     text-align: center;
 }
+
+/* ENd Results */
