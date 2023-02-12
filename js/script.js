@@ -43,7 +43,6 @@ function createBoard() {
     const size = 9;
     const empty = 0;
     const edge = 3;
-
     // Creates a 9x9 grid for the board
     for (let rowNum = 0; rowNum < size; rowNum++) {
         let row = [];
@@ -52,19 +51,16 @@ function createBoard() {
         }
         board.push(row);
     }
-
-    /* Assigns edge positions to the relevant array locations for use board position
-    analysis */
+    // Assigns edge positions to the relevant array locations for use in
+    // board position analysis
     for (let colNum = 0; colNum < size; colNum++) {
         board[0][colNum] = edge;
         board[8][colNum] = edge;
     }
-
     for (let rowNum = 1; rowNum < size - 1; rowNum++) {
         board[rowNum][0] = edge;
         board[rowNum][8] = edge;
     }
-
     return board
 }
 
@@ -97,7 +93,7 @@ function findAdjacent(row, col) {
     return [
     [row - 1, col],
     [row, col - 1],
-    [row, col - 1 + 2], // 'col + 1' adds 11 instead of 1 - fix in the future
+    [row, col - 1 + 2], // 'col + 1' adds 11 instead of 1; fix in the future
     [row + 1, col]
     ]
 }
@@ -168,8 +164,52 @@ function placeStone(location) {
         assignBoardPos(rowNum, colNum)
         location.innerText = "●";
         location.style.color = colors[activePlayer - 1];
-        // calculateScore()
+        calculateScore()
         updateScore()
         changeActivePlayer()
     }
+}
+
+function calculateScore() {
+    score[0] = checkScore(1)
+    score[1] = checkScore(2)
+}
+
+function checkScore(player) {
+    // Evaluates the score of current board positions, first looping through the
+    // vertical hinges then the horizontal ones.
+    let calcScore = 0
+    // Scores all vertical hinges
+    for (let rowIndex = 1; rowIndex < board.length; rowIndex++) {
+        for (let colIndex = 0; colIndex < board.length; colIndex++) {
+            let boardPos = board[rowIndex][colIndex];
+            let comparisonPos = board[rowIndex - 1][colIndex]
+            if (comparisonPos === player && boardPos === player) {
+                calcScore++
+            }
+            else if (comparisonPos === 3 && boardPos === player) {
+                calcScore++
+            }
+            else if (boardPos === 3 && comparisonPos === player) {
+                calcScore++
+            }
+        }
+    }
+    // Score all horizontal hinges
+        for (let rowIndex = 1; rowIndex < board.length; rowIndex++) {
+            for (let colIndex = 0; colIndex < board.length; colIndex++) {
+                let boardPos = board[rowIndex][colIndex];
+                let comparisonPos = board[rowIndex][colIndex - 1]
+                if (comparisonPos === player && boardPos === player) {
+                    calcScore++
+                }
+                else if (comparisonPos === 3 && boardPos === player) {
+                    calcScore++
+                }
+                else if (boardPos === 3 && comparisonPos === player) {
+                    calcScore++
+                }
+            }
+        }
+    return calcScore
 }
