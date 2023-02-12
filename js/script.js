@@ -138,7 +138,7 @@ function hasFourHinges(row, col) {
 
 function assignBoardPos(row, col) {
     board[row][col] = activePlayer;
-    score[activePlayer - 1]++
+    // score[activePlayer - 1]++
 }
 
 function isValidMove(row, col) {
@@ -165,6 +165,7 @@ function placeStone(location) {
         calculateScore()
         updateScore()
         changeActivePlayer()
+        makeComputerMove()
     }
     if (gameOver()) {
         displayResult()
@@ -247,4 +248,51 @@ function displayResult() {
     let displayText = result + " Refresh the page (F5) to play again."
     gameResult.innerText = (displayText)
     gameResult.style.padding = "5px"
+}
+
+
+function remainingMoves() {
+    // Cycles through board positions starting at A1 (1,1). If a position is
+    // a potentially valid move, it is appended to an array which is then used
+    // when the pseudo AI randomly selects its move.
+    let possibleMoves = []
+    for (let rowIndex = 1; rowIndex < board.length; rowIndex++) {
+        for (let colIndex = 1; colIndex < board.length; colIndex++) {
+            if(board[rowIndex][colIndex] === 0) {
+                if (!hasFourHinges(rowIndex, colIndex)) {
+                    if (!checkAdjStones(rowIndex, colIndex)) {
+                        possibleMoves.push([rowIndex, colIndex])
+                    }
+                }
+            }
+        }
+    }
+    return possibleMoves
+}
+
+function makeComputerMove() {
+    // Pseudo AI placeholder that generates random moves for computer player
+    let movesList = remainingMoves()
+    let moveChoice = Math.floor((Math.random() * movesList.length))
+    let rowChoice = movesList[moveChoice][0]
+    let colChoice = movesList[moveChoice][1]
+    if (isValidMove(rowChoice, colChoice)) {
+        assignBoardPos(rowChoice, colChoice)
+        let location = "#"+convertedRow(rowChoice)+colChoice
+        let compElement = document.querySelector(location)
+        compElement.innerText = "●";
+        compElement.style.color = colors[activePlayer - 1];
+        calculateScore()
+        updateScore()
+        changeActivePlayer()
+    }
+    if (gameOver()) {
+        displayResult()
+    }
+}
+
+function convertedRow(num) {
+    // Converts computer row to a letter usable for accessing square element
+    const possibleRows = ["A", "B", "C", "D", "E", "F", "G"];
+    return possibleRows[num - 1]
 }
