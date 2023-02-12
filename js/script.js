@@ -27,7 +27,6 @@
  *
  */
 
-
 console.log("Javascript is connected")
 
 const scoreP1 = document.querySelector("#score_p1")
@@ -145,12 +144,10 @@ function assignBoardPos(row, col) {
 function isValidMove(row, col) {
     if (board[row][col] !== 0) {
         // Invalid move - space occupied
-        console.log("occupied")
         return false
     }
     if (hasFourHinges(row, col)){
         // Invalid move - move would have 4 immediate hinges
-        console.log("would have 4 hinges")
         return false;
     }
     // Valid move if none of the adjacent stones would have 4 hinges
