@@ -1,3 +1,3 @@
 # maerstanas_js
 
-A Javascript-based version of Mǽrstánas, a FLOSS abstract strategy game.
+This is an implementation of [Mǽrstánas](https://codeberg.org/jaerrib/maerstanas), an open source abstract strategy game, using HTML, CSS, and JavaScript.
