@@ -6,39 +6,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mǽrstánas</title>
+    <link rel="stylesheet" href="css/game_style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Mǽrstánas</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
-                        aria-controls="offcanvasExample">
-                        <a class="nav-link" href="#">Rules</a>
-                    </li>
+    <div class="container">
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            New Game
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">1 player</a></li>
-                            <li><a class="dropdown-item" href="#">2 players</a></li>
-                        </ul>
-                    </li>
-                </ul>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Mǽrstánas</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+                            aria-controls="offcanvasExample">
+                            <a class="nav-link" href="#">Rules</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                New Game
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">1 player</a></li>
+                                <li><a class="dropdown-item" href="#">2 players</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
     </div>
 
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
@@ -94,6 +96,91 @@
                 Mǽrstánas is licensed as <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a>
             </div>
         </div>
+    </div>
+
+    <!-- Board -->
+    <div class="game_board container">
+        <!-- Row A -->
+        <div class="board_row">
+            <div class="dark_square" id="A1" onclick="placeStone(this)"></div>
+                <div class="light_square" id="A2" onclick="placeStone(this)"> </div>
+                <div class="dark_square" id="A3" onclick="placeStone(this)"> </div>
+                <div class="light_square" id="A4" onclick="placeStone(this)"> </div>
+                <div class="dark_square" id="A5" onclick="placeStone(this)"> </div>
+                <div class="light_square" id="A6" onclick="placeStone(this)"> </div>
+                <div class="dark_square" id="A7" onclick="placeStone(this)"> </div>
+            </div>
+            <!-- End Row A -->
+            <!-- Row B -->
+            <div class="board_row">
+                <div class="light_square" id="B1" onclick="placeStone(this)"> </div>
+                <div class="dark_square" id="B2" onclick="placeStone(this)"> </div>
+                <div class="light_square" id="B3" onclick="placeStone(this)"> </div>
+                <div class="dark_square" id="B4" onclick="placeStone(this)"> </div>
+                <div class="light_square" id="B5" onclick="placeStone(this)"> </div>
+                <div class="dark_square" id="B6" onclick="placeStone(this)"> </div>
+                <div class="light_square" id="B7" onclick="placeStone(this)"> </div>
+            </div>
+            <!-- End Row B -->
+            <!-- Row C -->
+            <div class="board_row">
+                <div class="dark_square" id="C1" onclick="placeStone(this)"> </div>
+                <div class="light_square" id="C2" onclick="placeStone(this)"> </div>
+                <div class="dark_square" id="C3" onclick="placeStone(this)"> </div>
+                <div class="light_square" id="C4" onclick="placeStone(this)"> </div>
+                <div class="dark_square" id="C5" onclick="placeStone(this)"> </div>
+                <div class="light_square" id="C6" onclick="placeStone(this)"> </div>
+                <div class="dark_square" id="C7" onclick="placeStone(this)"> </div>
+            </div>
+            <!-- End Row C -->
+            <!-- Row D -->
+            <div class="board_row">
+                <div class="light_square" id="D1" onclick="placeStone(this)"> </div>
+                <div class="dark_square" id="D2" onclick="placeStone(this)"> </div>
+                <div class="light_square" id="D3" onclick="placeStone(this)"> </div>
+                <div class="dark_square" id="D4" onclick="placeStone(this)"> </div>
+                <div class="light_square" id="D5" onclick="placeStone(this)"> </div>
+                <div class="dark_square" id="D6" onclick="placeStone(this)"> </div>
+                <div class="light_square" id="D7" onclick="placeStone(this)"> </div>
+            </div>
+            <!-- End Row D -->
+            <!-- Row E -->
+            <div class="board_row">
+                <div class="dark_square" id="E1" onclick="placeStone(this)"> </div>
+                <div class="light_square" id="E2" onclick="placeStone(this)"> </div>
+                <div class="dark_square" id="E3" onclick="placeStone(this)"> </div>
+                <div class="light_square" id="E4" onclick="placeStone(this)"> </div>
+                <div class="dark_square" id="E5" onclick="placeStone(this)"> </div>
+                <div class="light_square" id="E6" onclick="placeStone(this)"> </div>
+                <div class="dark_square" id="E7" onclick="placeStone(this)"> </div>
+            </div>
+            <!-- End Row E -->
+            <!-- Row F -->
+            <div class="board_row">
+                <div class="light_square" id="F1" onclick="placeStone(this)"> </div>
+                <div class="dark_square" id="F2" onclick="placeStone(this)"> </div>
+                <div class="light_square" id="F3" onclick="placeStone(this)"> </div>
+                <div class="dark_square" id="F4" onclick="placeStone(this)"> </div>
+                <div class="light_square" id="F5" onclick="placeStone(this)"> </div>
+                <div class="dark_square" id="F6" onclick="placeStone(this)"> </div>
+                <div class="light_square" id="F7" onclick="placeStone(this)"> </div>
+            </div>
+            <!-- End Row F -->
+            <!-- Row G -->
+            <div class="board_row">
+                <div class="dark_square" id="G1" onclick="placeStone(this)"> </div>
+                <div class="light_square" id="G2" onclick="placeStone(this)"> </div>
+                <div class="dark_square" id="G3" onclick="placeStone(this)"> </div>
+                <div class="light_square" id="G4" onclick="placeStone(this)"> </div>
+                <div class="dark_square" id="G5" onclick="placeStone(this)"> </div>
+                <div class="light_square" id="G6" onclick="placeStone(this)"> </div>
+                <div class="dark_square" id="G7" onclick="placeStone(this)"> </div>
+            </div>
+            <!-- End Row G -->
+        </div>
+        <!-- End Board -->
+
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"

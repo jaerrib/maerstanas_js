@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+
+.game_board {
+    /* outline: 1px solid black; */
+    /* box-shadow: 0 0 10px black; */
+    margin-top: 5px;
+}
+
+.board_row {
+    display: flex;
+    column-count: 7;
+}
+
+
+.dark_square,
+.light_square {
+    border: 0;
+    font-size: 48px;
+    height: 50px;
+    width: 50px;
+}
+
+.dark_square {
+    background-color: #63452c;
+}
+
+.light_square {
+    background-color: #cdab8f;
+}
+
+/* End Board */
+
+#results {
+    background-color: black;
+    color: white;
+    margin-top: 5px;
+    text-align: center;
+}
+
+/* ENd Results */

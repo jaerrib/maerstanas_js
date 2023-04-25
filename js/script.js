@@ -91,10 +91,10 @@ function convertToRowNum(letter) {
 function findAdjacent(row, col) {
     // Returns assigned value for positions adjacent to a given board position
     return [
-    [row - 1, col],
-    [row, col - 1],
-    [row, col - 1 + 2], // 'col + 1' adds 11 instead of 1; fix in the future
-    [row + 1, col]
+        [row - 1, col],
+        [row, col - 1],
+        [row, col - 1 + 2], // 'col + 1' adds 11 instead of 1; fix in the future
+        [row + 1, col]
     ]
 }
 
@@ -125,20 +125,19 @@ function countHinges(row, col) {
         if (positionCheck === 3) {
             hinges += 1;
         }
-        else if (positionCheck === 1 || positionCheck === 2){
+        else if (positionCheck === 1 || positionCheck === 2) {
             hinges += 1;
         }
+        return hinges
     }
-    return hinges
-}
 
-function hasFourHinges(row, col) {
-    return countHinges(row, col) > 3
+    function hasFourHinges(row, col) {
+        return countHinges(row, col) > 3
+    }
 }
 
 function assignBoardPos(row, col) {
     board[row][col] = activePlayer;
-    // score[activePlayer - 1]++
 }
 
 function isValidMove(row, col) {
@@ -146,7 +145,7 @@ function isValidMove(row, col) {
         // Invalid move - space occupied
         return false
     }
-    if (hasFourHinges(row, col)){
+    if (hasFourHinges(row, col)) {
         // Invalid move - move would have 4 immediate hinges
         return false;
     }
@@ -198,21 +197,21 @@ function checkScore(player) {
         }
     }
     // Score all horizontal hinges
-        for (let rowIndex = 1; rowIndex < board.length; rowIndex++) {
-            for (let colIndex = 0; colIndex < board.length; colIndex++) {
-                let boardPos = board[rowIndex][colIndex];
-                let comparisonPos = board[rowIndex][colIndex - 1]
-                if (comparisonPos === player && boardPos === player) {
-                    calcScore++
-                }
-                else if (comparisonPos === 3 && boardPos === player) {
-                    calcScore++
-                }
-                else if (boardPos === 3 && comparisonPos === player) {
-                    calcScore++
-                }
+    for (let rowIndex = 1; rowIndex < board.length; rowIndex++) {
+        for (let colIndex = 0; colIndex < board.length; colIndex++) {
+            let boardPos = board[rowIndex][colIndex];
+            let comparisonPos = board[rowIndex][colIndex - 1]
+            if (comparisonPos === player && boardPos === player) {
+                calcScore++
+            }
+            else if (comparisonPos === 3 && boardPos === player) {
+                calcScore++
+            }
+            else if (boardPos === 3 && comparisonPos === player) {
+                calcScore++
             }
         }
+    }
     return calcScore
 }
 
@@ -224,7 +223,7 @@ function gameOver() {
     let movesLeft = 0
     for (let rowIndex = 1; rowIndex < board.length; rowIndex++) {
         for (let colIndex = 1; colIndex < board.length; colIndex++) {
-            if(board[rowIndex][colIndex] === 0) {
+            if (board[rowIndex][colIndex] === 0) {
                 if (!hasFourHinges(rowIndex, colIndex)) {
                     if (!checkAdjStones(rowIndex, colIndex)) {
                         movesLeft++
@@ -258,7 +257,7 @@ function remainingMoves() {
     let possibleMoves = []
     for (let rowIndex = 1; rowIndex < board.length; rowIndex++) {
         for (let colIndex = 1; colIndex < board.length; colIndex++) {
-            if(board[rowIndex][colIndex] === 0) {
+            if (board[rowIndex][colIndex] === 0) {
                 if (!hasFourHinges(rowIndex, colIndex)) {
                     if (!checkAdjStones(rowIndex, colIndex)) {
                         possibleMoves.push([rowIndex, colIndex])
@@ -278,7 +277,7 @@ function makeComputerMove() {
     let colChoice = movesList[moveChoice][1]
     if (isValidMove(rowChoice, colChoice)) {
         assignBoardPos(rowChoice, colChoice)
-        let location = "#"+convertedRow(rowChoice)+colChoice
+        let location = "#" + convertedRow(rowChoice) + colChoice
         let compElement = document.querySelector(location)
         compElement.innerText = "●";
         compElement.style.color = colors[activePlayer - 1];
