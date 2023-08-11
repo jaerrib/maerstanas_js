@@ -1,21 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
+    <title>Mǽrstánas</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <script>
         /*
-        @licstart  The following is the entire license notice for the 
+        @licstart  The following is the entire license notice for the
         JavaScript code in this page.
 
         Copyright (C) 2023 John Beers (jaerrib@tutanota.com)
@@ -40,108 +36,212 @@
         */
     </script>
     <script src="js/script.js" defer></script>
-    <title>Mǽrstánas</title>
+
 </head>
 
 <body>
-    <!-- Container -->
     <div class="container">
-        <!-- Navigation -->
-        <div class="navigation">
-            <ul>
-                <li>Mǽrstánas</li>
-                <li><a href="rules.html" target="_blank">Rules</a></li>
-                <li>Player 1: <span id="score_p1">0</span></li>
-                <li>Player 2: <span id="score_p2">0</span></li>
-            </ul>
+
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+            <a class="navbar-brand" href="#">Mǽrstánas</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+                        aria-controls="offcanvasExample">
+                        <a class="nav-link" href="#">Rules</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            New Game
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">1 player</a></li>
+                            <li><a class="dropdown-item" href="#">2 players</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <!-- End Navigation -->
-        <!-- Board -->
-        <div class="board">
-            <!-- Row A -->
-            <div class="row">
-                <button class="dark_square" id="A1" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="A2" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="A3" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="A4" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="A5" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="A6" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="A7" onclick="placeStone(this)"> </button>
-            </div>
-            <!-- End Row A -->
-            <!-- Row B -->
-            <div class="row">
-                <button class="light_square" id="B1" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="B2" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="B3" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="B4" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="B5" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="B6" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="B7" onclick="placeStone(this)"> </button>
-            </div>
-            <!-- End Row B -->
-            <!-- Row C -->
-            <div class="row">
-                <button class="dark_square" id="C1" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="C2" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="C3" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="C4" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="C5" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="C6" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="C7" onclick="placeStone(this)"> </button>
-            </div>
-            <!-- End Row C -->
-            <!-- Row D -->
-            <div class="row">
-                <button class="light_square" id="D1" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="D2" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="D3" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="D4" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="D5" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="D6" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="D7" onclick="placeStone(this)"> </button>
-            </div>
-            <!-- End Row D -->
-            <!-- Row E -->
-            <div class="row">
-                <button class="dark_square" id="E1" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="E2" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="E3" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="E4" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="E5" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="E6" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="E7" onclick="placeStone(this)"> </button>
-            </div>
-            <!-- End Row E -->
-            <!-- Row F -->
-            <div class="row">
-                <button class="light_square" id="F1" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="F2" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="F3" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="F4" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="F5" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="F6" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="F7" onclick="placeStone(this)"> </button>
-            </div>
-            <!-- End Row F -->
-            <!-- Row G -->
-            <div class="row">
-                <button class="dark_square" id="G1" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="G2" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="G3" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="G4" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="G5" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="G6" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="G7" onclick="placeStone(this)"> </button>
-            </div>
-            <!-- End Row G -->
+    </nav>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">How to Play</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <!-- End Board -->
-        <!-- Results-->
-        <p id="results"></p>
-        <!-- End Results -->
+        <div class="offcanvas-body">
+            <div>
+                <p><em><strong>Note:</strong> This web version of Mǽrstánas uses the 0.2.0 rule set.</em></p>
+                <h2>Overview</h2>
+                <p>
+                    Mǽrstánas is a free libre open source abstract strategy game where players alternate placing stones
+                    within the
+                    squares of a 7x7 grid with the goal of creating connection points ("hinges") between their own
+                    pieces or the edges
+                    of the board.
+                </p>
+                <h3>Objective</h3>
+                <p>Players try to achieve the highest score by making the most number of connections.</p>
+                <h3>Starting the game</h3>
+                <p>The board begins empty (similar to Go). Traditionally, the player using the darker colored stones
+                    would play
+                    first, but players may decide who goes first in whatever manner seems appropriate. Players then
+                    alternate taking
+                    turns.</p>
+                <h2>Playing the game</h2>
+                <p>On a player's turn, the player places one stone (<em>stán</em>) on a square on the game board. Stones
+                    (<em>stánas</em>) must be placed within the square, not on the intersections as in Go. Stones may be
+                    placed on any
+                    empty square, either standing alone or adjacent to another stone of either color (creating a
+                    <em>heorr</em> or
+                    "hinge").
+                </p>
+                <h3>Placement limitations</h3>
+                <p>
+                    Stones may have no more than <strong>three</strong> hinges; the fourth side <em>must always remain
+                        free</em>.
+                    Stones may not be placed such that four hinges are created immediately. The edge of the board counts
+                    as
+                    <strong>one</strong> hinge; corners count as <strong>two</strong> because they border two edges.
+                    Play continues
+                    until no more viable moves remain.
+                </p>
+                <h2>Scoring</h2>
+                <p>
+                    Players receive one point for each stone or edge that is adjacent to one of their own stones
+                    (<em>freóndlíc
+                        heorr</em> or "friendly hinge"). The player with the highest score wins. Note that tie games are
+                    possible.
+                </p>
+                <h2>License</h2>
+                Mǽrstánas is licensed as <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a>
+            </div>
+        </div>
     </div>
-    <!-- End Container -->
+
+    <!-- Navigation -->
+    <div class="mt-3 p-1 bg-body-secondary text-start">
+        <ul class="list-inline grid">
+            <li class="list-inline-item w-25">Player 1: <span id="score_p1">0</span></li>
+            <li class="list-inline-item w-25">Player 2: <span id="score_p2">0</span></li>
+        </ul>
+    </div>
+    <!-- End Navigation -->
+    <!-- Board -->
+    <div class="mt-3">
+        <!-- Info -->
+        <div class="d-flex" style="text-align: center;">
+            <div class="square"></div>
+            <div class="square">A</div>
+            <div class="square">B</div>
+            <div class="square">C</div>
+            <div class="square">D</div>
+            <div class="square">E</div>
+            <div class="square">F</div>
+            <div class="square">G</div>
+        </div>
+        <!-- Row A -->
+        <div class="d-flex">
+            <div class="square" style="text-align: center;">1</div>
+            <button class="dark_square" id="A1" onclick="placeStone(this)"> </button>
+            <button class="light_square" id="A2" onclick="placeStone(this)"> </button>
+            <button class="dark_square" id="A3" onclick="placeStone(this)"> </button>
+            <button class="light_square" id="A4" onclick="placeStone(this)"> </button>
+            <button class="dark_square" id="A5" onclick="placeStone(this)"> </button>
+            <button class="light_square" id="A6" onclick="placeStone(this)"> </button>
+            <button class="dark_square" id="A7" onclick="placeStone(this)"> </button>
+        </div>
+        <!-- End Row A -->
+        <!-- Row B -->
+        <div class="d-flex">
+            <div class="square" style="text-align: center;">2</div>
+            <button class="light_square" id="B1" onclick="placeStone(this)"> </button>
+            <button class="dark_square" id="B2" onclick="placeStone(this)"> </button>
+            <button class="light_square" id="B3" onclick="placeStone(this)"> </button>
+            <button class="dark_square" id="B4" onclick="placeStone(this)"> </button>
+            <button class="light_square" id="B5" onclick="placeStone(this)"> </button>
+            <button class="dark_square" id="B6" onclick="placeStone(this)"> </button>
+            <button class="light_square" id="B7" onclick="placeStone(this)"> </button>
+        </div>
+        <!-- End Row B -->
+        <!-- Row C -->
+        <div class="d-flex">
+            <div class="square" style="text-align: center;">3</div>
+            <button class="dark_square" id="C1" onclick="placeStone(this)"> </button>
+            <button class="light_square" id="C2" onclick="placeStone(this)"> </button>
+            <button class="dark_square" id="C3" onclick="placeStone(this)"> </button>
+            <button class="light_square" id="C4" onclick="placeStone(this)"> </button>
+            <button class="dark_square" id="C5" onclick="placeStone(this)"> </button>
+            <button class="light_square" id="C6" onclick="placeStone(this)"> </button>
+            <button class="dark_square" id="C7" onclick="placeStone(this)"> </button>
+        </div>
+        <!-- End Row C -->
+        <!-- Row D -->
+        <div class="d-flex">
+            <div class="square" style="text-align: center;">4</div>
+            <button class="light_square" id="D1" onclick="placeStone(this)"> </button>
+            <button class="dark_square" id="D2" onclick="placeStone(this)"> </button>
+            <button class="light_square" id="D3" onclick="placeStone(this)"> </button>
+            <button class="dark_square" id="D4" onclick="placeStone(this)"> </button>
+            <button class="light_square" id="D5" onclick="placeStone(this)"> </button>
+            <button class="dark_square" id="D6" onclick="placeStone(this)"> </button>
+            <button class="light_square" id="D7" onclick="placeStone(this)"> </button>
+        </div>
+        <!-- End Row D -->
+        <!-- Row E -->
+        <div class="d-flex">
+            <div class="square" style="text-align: center;">5</div>
+            <button class="dark_square" id="E1" onclick="placeStone(this)"> </button>
+            <button class="light_square" id="E2" onclick="placeStone(this)"> </button>
+            <button class="dark_square" id="E3" onclick="placeStone(this)"> </button>
+            <button class="light_square" id="E4" onclick="placeStone(this)"> </button>
+            <button class="dark_square" id="E5" onclick="placeStone(this)"> </button>
+            <button class="light_square" id="E6" onclick="placeStone(this)"> </button>
+            <button class="dark_square" id="E7" onclick="placeStone(this)"> </button>
+        </div>
+        <!-- End Row E -->
+        <!-- Row F -->
+        <div class="d-flex">
+            <div class="square" style="text-align: center;">6</div>
+            <button class="light_square" id="F1" onclick="placeStone(this)"> </button>
+            <button class="dark_square" id="F2" onclick="placeStone(this)"> </button>
+            <button class="light_square" id="F3" onclick="placeStone(this)"> </button>
+            <button class="dark_square" id="F4" onclick="placeStone(this)"> </button>
+            <button class="light_square" id="F5" onclick="placeStone(this)"> </button>
+            <button class="dark_square" id="F6" onclick="placeStone(this)"> </button>
+            <button class="light_square" id="F7" onclick="placeStone(this)"> </button>
+        </div>
+        <!-- End Row F -->
+        <!-- Row G -->
+        <div class="d-flex">
+            <div class="square" style="text-align: center;">7</div>
+            <button class="dark_square" id="G1" onclick="placeStone(this)"> </button>
+            <button class="light_square" id="G2" onclick="placeStone(this)"> </button>
+            <button class="dark_square" id="G3" onclick="placeStone(this)"> </button>
+            <button class="light_square" id="G4" onclick="placeStone(this)"> </button>
+            <button class="dark_square" id="G5" onclick="placeStone(this)"> </button>
+            <button class="light_square" id="G6" onclick="placeStone(this)"> </button>
+            <button class="dark_square" id="G7" onclick="placeStone(this)"> </button>
+        </div>
+        <!-- End Row G -->
+    </div>
+    <!-- End Board -->
+    <!-- Results-->
+    <p id="results"></p>
+    <!-- End Results -->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    </div>
 </body>
 
 </html>

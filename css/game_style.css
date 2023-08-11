@@ -4,17 +4,25 @@
     font-family: sans-serif;
 }
 
-button:hover {
-    background-color: rgba(0, 0, 128, 0.75);
+
+.game_board {
+    /* outline: 1px solid black; */
+    /* box-shadow: 0 0 10px black; */
+    margin-top: 5px;
 }
 
+.board_row {
+    display: flex;
+    column-count: 7;
+}
+
+
 .dark_square,
-.light_square,
-.square {
+.light_square {
     border: 0;
-    font-size: 2em;
-    height: 2em;
-    width: 2em;
+    font-size: 48px;
+    height: 50px;
+    width: 50px;
 }
 
 .dark_square {
@@ -34,4 +42,4 @@ button:hover {
     text-align: center;
 }
 
-/* End Results */
+/* ENd Results */
