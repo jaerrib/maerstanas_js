@@ -37,6 +37,13 @@ let score = [0, 0]
 let activePlayer = 1
 let board = createBoard()
 
+// creates a new game
+function newGame(player) {
+    let score = [0, 0]
+    let activePlayer = 1
+    let board = createBoard()
+}
+
 // Initializes empty board and stone arrays
 function createBoard() {
     let board = []
@@ -160,7 +167,7 @@ function placeStone(location) {
     let colNum = locArr[1];
     if (isValidMove(rowNum, colNum)) {
         assignBoardPos(rowNum, colNum)
-        location.innerText = "●"; //thunder-stone ⦿
+        location.innerText = "●";
         location.style.color = colors[activePlayer - 1];
         calculateScore()
         updateScore()
@@ -245,7 +252,7 @@ function displayResult() {
         result = "Player 1 wins!"
     }
     else result = "Player 2 wins!"
-    let displayText = result + " Refresh the page (F5) to play again."
+    let displayText = result + " Refresh the page (F5) or select New Game to play again."
     gameResult.innerText = (displayText)
     gameResult.style.padding = "5px"
 }
