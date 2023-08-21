@@ -165,7 +165,7 @@ function placeStone(location) {
     let colNum = locArr[1];
     if (isValidMove(rowNum, colNum)) {
         assignBoardPos(rowNum, colNum)
-        location.innerHTML += '<img src="img/dark_stone.svg" style="width:1.5em;" class="mb-1 rounded-circle" alt="dark stone" role=img">'
+        location.innerHTML += '<img src="img/dark_stone.svg" class="stone" alt="dark stone" role=img">'
         calculateScore()
         updateScore()
         changeActivePlayer()
@@ -284,7 +284,7 @@ function makeComputerMove() {
         assignBoardPos(rowChoice, colChoice)
         let location = "#" + convertedRow(rowChoice) + colChoice
         let compElement = document.querySelector(location)
-        compElement.innerHTML += '<img src="img/light_stone.svg" style="width:1.5em;" class="mb-1 rounded-circle" alt="light stone" role=img">'
+        compElement.innerHTML += '<img src="img/light_stone.svg" class="stone" alt="light stone" role=img">'
         calculateScore()
         updateScore()
         changeActivePlayer()

@@ -3,10 +3,64 @@
     padding: 0;
 }
 
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .square {
+        font-size: 1em;
+        height: 2em;
+    }
+    .stone {
+        width:1.75em;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .square {
+        font-size: 2em;
+        height: 2em;
+    }
+    .stone {
+        width:1.75em;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .square {
+        font-size: 2em;
+        height: 2em;
+    }
+    .stone {
+        width:1.75em;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .square {
+        font-size: 2.25em;
+        height: 2.25em;
+    }
+    .stone {
+        width:2em;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .square {
+        font-size: 2.25em;
+        height: 2.25em;
+    }
+    .stone {
+        width:2em;
+    }
+}
+
 .square {
     aspect-ratio: 1 / 1;
-    font-size: 2em;
-    height: 2em;
 }
 
 .boardSquare {
