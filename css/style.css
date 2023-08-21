@@ -3,26 +3,22 @@
     padding: 0;
 }
 
+.square {
+    aspect-ratio: 1 / 1;
+    font-size: 2em;
+    height: 2em;
+}
+
+.boardSquare {
+    background-color: var(--bs-secondary);
+    border: 1px solid var(--bs-secondary-border-subtle)
+}
+
+
 button:hover {
     background-color: var(--bs-primary);
 }
 
-.dark_square,
-.light_square,
-.square {
-    border: 0;
-    font-size: 2em;
-    height: 2em;
-    width: 2em;
-}
-
-.dark_square {
-    background-color: #63452c;
-}
-
-.light_square {
-    background-color: #cdab8f;
-}
 
 /* End Board */
 
