@@ -50,23 +50,22 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
-                        <li class="nav-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
-                            aria-controls="offcanvasExample">
+                        <li class="nav-item" data-bs-toggle="offcanvas" href="#offcanvasRules" role="button"
+                            aria-controls="offcanvasRules">
                             <a class="nav-link" href="#">Rules</a>
                         </li>
                         <li>
                             <a class="nav-link" href="index.html" onclick="newGame()">New Game</a>
                         </li>
-
                     </ul>
                 </div>
             </div>
         </nav>
 
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
-            aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasRules"
+            aria-labelledby="offcanvasRulesLabel">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasExampleLabel">How to Play</h5>
+                <h5 class="offcanvas-title" id="offcanvasRulesLabel">How to Play</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
@@ -113,8 +112,8 @@
         <!-- Navigation -->
         <div class="mt-3 p-1 bg-body-secondary text-start">
             <ul class="list-inline grid px-4 my-2 fs-5 fw-bold">
-                <li class="list-inline-item w-25">Player 1: <span id="score_p1">0</span></li>
-                <li class="list-inline-item w-25">Player 2: <span id="score_p2">0</span></li>
+                <li class="list-inline-item">Player 1: <span id="score_p1">0</span></li>
+                <li class="list-inline-item ms-3">Player 2: <span id="score_p2">0</span></li>
             </ul>
         </div>
         <!-- End Navigation -->
@@ -134,85 +133,85 @@
             <!-- Row A -->
             <div class="d-flex">
                 <div class="square" style="text-align: center;">1</div>
-                <button class="dark_square" id="A1" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="A2" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="A3" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="A4" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="A5" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="A6" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="A7" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="A1" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="A2" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="A3" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="A4" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="A5" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="A6" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="A7" onclick="placeStone(this)"> </button>
             </div>
             <!-- End Row A -->
             <!-- Row B -->
             <div class="d-flex">
                 <div class="square" style="text-align: center;">2</div>
-                <button class="light_square" id="B1" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="B2" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="B3" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="B4" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="B5" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="B6" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="B7" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="B1" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="B2" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="B3" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="B4" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="B5" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="B6" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="B7" onclick="placeStone(this)"> </button>
             </div>
             <!-- End Row B -->
             <!-- Row C -->
             <div class="d-flex">
                 <div class="square" style="text-align: center;">3</div>
-                <button class="dark_square" id="C1" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="C2" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="C3" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="C4" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="C5" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="C6" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="C7" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="C1" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="C2" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="C3" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="C4" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="C5" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="C6" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="C7" onclick="placeStone(this)"> </button>
             </div>
             <!-- End Row C -->
             <!-- Row D -->
             <div class="d-flex">
                 <div class="square" style="text-align: center;">4</div>
-                <button class="light_square" id="D1" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="D2" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="D3" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="D4" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="D5" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="D6" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="D7" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="D1" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="D2" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="D3" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="D4" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="D5" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="D6" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="D7" onclick="placeStone(this)"> </button>
             </div>
             <!-- End Row D -->
             <!-- Row E -->
             <div class="d-flex">
                 <div class="square" style="text-align: center;">5</div>
-                <button class="dark_square" id="E1" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="E2" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="E3" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="E4" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="E5" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="E6" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="E7" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="E1" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="E2" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="E3" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="E4" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="E5" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="E6" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="E7" onclick="placeStone(this)"> </button>
             </div>
             <!-- End Row E -->
             <!-- Row F -->
             <div class="d-flex">
                 <div class="square" style="text-align: center;">6</div>
-                <button class="light_square" id="F1" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="F2" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="F3" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="F4" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="F5" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="F6" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="F7" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="F1" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="F2" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="F3" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="F4" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="F5" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="F6" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="F7" onclick="placeStone(this)"> </button>
             </div>
             <!-- End Row F -->
             <!-- Row G -->
             <div class="d-flex">
                 <div class="square" style="text-align: center;">7</div>
-                <button class="dark_square" id="G1" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="G2" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="G3" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="G4" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="G5" onclick="placeStone(this)"> </button>
-                <button class="light_square" id="G6" onclick="placeStone(this)"> </button>
-                <button class="dark_square" id="G7" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="G1" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="G2" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="G3" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="G4" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="G5" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="G6" onclick="placeStone(this)"> </button>
+                <button class="square boardSquare" id="G7" onclick="placeStone(this)"> </button>
             </div>
             <!-- End Row G -->
         </div>
@@ -224,7 +223,7 @@
         <footer>
             <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top fs-6">
                 <p>&copy; 2023 John Beers. Mǽrstánas is licensed as <a
-                        href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a>. This code portion of this site is licensed as <a
+                        href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a>. The code portion of this site is licensed as <a
                         href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPLv3</a></p>
                 <ul class="list-unstyled d-flex">
                     <li class="ms-3"><a class="link-body-emphasis" href="https://mastodon.social/deck/@johnbeers"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-mastodon" viewBox="0 0 16 16"><path d="M11.19 12.195c2.016-.24 3.77-1.475 3.99-2.603.348-1.778.32-4.339.32-4.339 0-3.47-2.286-4.488-2.286-4.488C12.062.238 10.083.017 8.027 0h-.05C5.92.017 3.942.238 2.79.765c0 0-2.285 1.017-2.285 4.488l-.002.662c-.004.64-.007 1.35.011 2.091.083 3.394.626 6.74 3.78 7.57 1.454.383 2.703.463 3.709.408 1.823-.1 2.847-.647 2.847-.647l-.06-1.317s-1.303.41-2.767.36c-1.45-.05-2.98-.156-3.215-1.928a3.614 3.614 0 0 1-.033-.496s1.424.346 3.228.428c1.103.05 2.137-.064 3.188-.189zm1.613-2.47H11.13v-4.08c0-.859-.364-1.295-1.091-1.295-.804 0-1.207.517-1.207 1.541v2.233H7.168V5.89c0-1.024-.403-1.541-1.207-1.541-.727 0-1.091.436-1.091 1.296v4.079H3.197V5.522c0-.859.22-1.541.66-2.046.456-.505 1.052-.764 1.793-.764.856 0 1.504.328 1.933.983L8 4.39l.417-.695c.429-.655 1.077-.983 1.934-.983.74 0 1.336.259 1.791.764.442.505.661 1.187.661 2.046v4.203z"/></svg></a></li>

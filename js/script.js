@@ -32,7 +32,6 @@ console.log("Javascript is connected")
 const scoreP1 = document.querySelector("#score_p1")
 const scoreP2 = document.querySelector("#score_p2")
 const gameResult = document.querySelector("#results")
-const colors = ["black", "white"]
 let score = [0, 0]
 let activePlayer = 1
 let board = createBoard()
@@ -145,7 +144,6 @@ function hasFourHinges(row, col) {
 
 function assignBoardPos(row, col) {
     board[row][col] = activePlayer;
-    // score[activePlayer - 1]++
 }
 
 function isValidMove(row, col) {
@@ -167,8 +165,7 @@ function placeStone(location) {
     let colNum = locArr[1];
     if (isValidMove(rowNum, colNum)) {
         assignBoardPos(rowNum, colNum)
-        location.innerText = "●";
-        location.style.color = colors[activePlayer - 1];
+        location.innerHTML += '<img src="img/dark_stone.svg" class="stone" alt="dark stone" role=img">'
         calculateScore()
         updateScore()
         changeActivePlayer()
@@ -287,8 +284,7 @@ function makeComputerMove() {
         assignBoardPos(rowChoice, colChoice)
         let location = "#" + convertedRow(rowChoice) + colChoice
         let compElement = document.querySelector(location)
-        compElement.innerText = "●";
-        compElement.style.color = colors[activePlayer - 1];
+        compElement.innerHTML += '<img src="img/light_stone.svg" class="stone" alt="light stone" role=img">'
         calculateScore()
         updateScore()
         changeActivePlayer()
